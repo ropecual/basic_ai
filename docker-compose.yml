@@ -7,6 +7,7 @@ services:
       - mynet
     volumes:
       - ollama:/root/.ollama
+    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 5 && ollama pull llama3 && wait"]
 
   app:
     build: ./app
